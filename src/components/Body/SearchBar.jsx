@@ -10,6 +10,7 @@ import { ImgPreview } from './ImgPreview'
 import expo from '../../assets/expo_img.jpg'
 import { HiArrowNarrowRight } from 'react-icons/hi'
 import { TiTick } from 'react-icons/ti'
+import { OwnerProjects, Projects } from './Projects'
 
 
 export const SearchBar = () => {
@@ -19,7 +20,7 @@ export const SearchBar = () => {
     
     
     return (
-        <>
+        <div className='body-container'>
             
             <div className="body-container-model">
 
@@ -161,21 +162,7 @@ export const SearchBar = () => {
                         <div className="label-right">See all Properties <HiArrowNarrowRight className='icon'/></div>
                     </div>
                 ))}
-                {property.map((propLoc, pIndex) => (
-                    <div className="properties-label-content" key={pIndex}>
-                        <div className="label-header-image">
-                            <img src={propLoc.prop_img} alt="" />
-                        </div>
-                        
-                        <div className="label-container">
-                            <div className="container-prop-type">{propLoc.type}</div>
-                            <div className="container-prop-rate">{propLoc.price} <span>{propLoc.divider}</span> {propLoc.prop_area}</div>
-                            <div className="container-prop-local">{propLoc.location}</div>
-                            <div className="container-prop-state">{propLoc.status}</div>
-                        </div>
-
-                    </div>
-                ))}
+                <OwnerProjects />
             </div>
 
             {/*-------------------------- Property Services --------------------------------------------- */}
@@ -204,7 +191,7 @@ export const SearchBar = () => {
 
             {/*------------------------------------------- Property Worth ----------------------------------------- */}
 
-            <div className="body-properties-label Prop-worth">                
+            <div className="body-properties-label worth-container">                
                 <div className="snapshot-label-content Prop-worth-label-content">
                     <div className="prop-worth">
                         <div className="prop-worth-container1">
@@ -221,8 +208,8 @@ export const SearchBar = () => {
                         <div className="prop-worth-container-finder">
                             <div className="worth-estimate">
                                 <div className="estimate-search">
-                                    <input type="text" placeholder='Enter Project/Locality' className='worth-estimate'/>
-                                    <button className='worth-button'>Get Estimate</button>
+                                    <input type="text" placeholder='Enter Project/Locality' className='worth-input'/>
+                                    <input type="submit" value='Get Estimate' className='worth-button' />
                                 </div>
                                 <div className="worth-estimate-desc">Most accurate estimate in just 30 seconds</div>
                             </div>
@@ -280,28 +267,7 @@ export const SearchBar = () => {
                         <div className="label-right gRight">See all Properties <HiArrowNarrowRight className='icon'/></div>
                     </div>
                 ))}
-                {project.map((prj, pIndex) => (
-                    <div className="properties-label-content glabel-content" key={pIndex}>
-                        <div className="label-header-image glabel-image">
-                            <img src={prj.pj_img} alt="" />
-                        </div>
-                        
-                        <div className="label-container">                            
-                            <div className="tcontainer-prop-title">{prj.title}</div>                           
-                            <div className="tcontainer">
-                                <div className="tcontainer-prop">{prj.cons} </div>
-                                <div className="tcontainer-prop">{prj.loc}</div>                                
-                            </div>
-                            <div className="tcontainer">
-                                <div className="tcontainer-prop-type">{prj.type}</div>
-                                <div className="container-prop-rate tcontainer-prop-rate">{prj.price} <span>onwards</span></div>
-                            </div>
-                            <div className="tcontainer-prop-ad">Marketed {prj.ads}</div>
-                            
-                        </div>
-
-                    </div>
-                ))}
+                <Projects />
             </div>
 
             {/*-------------------------- Popular Owner Properties --------------------------------------------- */}
@@ -316,21 +282,7 @@ export const SearchBar = () => {
                         <div className="label-right">See all Properties <HiArrowNarrowRight className='icon'/></div>
                     </div>
                 ))}
-                {property.map((propLoc, pIndex) => (
-                    <div className="properties-label-content" key={pIndex}>
-                        <div className="label-header-image">
-                            <img src={propLoc.prop_img} alt="" />
-                        </div>
-                        
-                        <div className="label-container">
-                            <div className="container-prop-type">{propLoc.type}</div>
-                            <div className="container-prop-rate">{propLoc.price}</div>
-                            <div className="container-prop-local">{propLoc.location}</div>
-                            <div className="container-prop-state">{propLoc.status}</div>
-                        </div>
-
-                    </div>
-                ))}
+                <OwnerProjects />
             </div>
 
             {/*-------------------------- Property Snapshot --------------------------------------------- */}
@@ -378,6 +330,6 @@ export const SearchBar = () => {
 
                 </div>
             </div>
-        </>   
+        </div>   
     )
 }
